@@ -1,0 +1,7 @@
+﻿<Monsters>
+<Monster ID="0" Star="1" HP="500" MaxAtk="15" CurAtk="5" MaxAs="18" CurAs="10" MaxMv="5" CurMv="0" Bullet="Bullet1"></Monster>
+<Monster ID="1" Star="1" HP="1000" MaxAtk="10" CurAtk="5" MaxAs="10" CurAs="5" MaxMv="10" CurMv="5" Bullet="Bullet2"></Monster>
+<Monster ID="2" Star="1" HP="600" MaxAtk="20" CurAtk="0" MaxAs="20" CurAs="0" MaxMv="20" CurMv="0" Bullet="Bullet1"></Monster>
+<Monster ID="3" Star="2" HP="1500" MaxAtk="30" CurAtk="15" MaxAs="40" CurAs="10" MaxMv="25" CurMv="5" Bullet="Bullet1"></Monster>
+<Monster ID="4" Star="3" HP="2000" MaxAtk="60" CurAtk="20" MaxAs="50" CurAs="10" MaxMv="40" CurMv="25" Bullet="Bullet1"></Monster>
+</Monsters>
