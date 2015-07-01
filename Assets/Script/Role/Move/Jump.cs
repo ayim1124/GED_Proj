@@ -4,7 +4,8 @@ using System.Collections;
 public class Jump : MonoBehaviour {
 
     Transform _role = null;
-    public float JumpSpeed = 5f;
+    public float JumpSpeed = 3.2f;
+    float _extra;
     bool _jump = false;
 
     void Start() {
@@ -16,17 +17,22 @@ public class Jump : MonoBehaviour {
     void Update () {
         if (_jump)
         {
-            _role.Translate(Vector3.up * Time.deltaTime * JumpSpeed);
+            _role.Translate(Vector3.up * Time.deltaTime * (JumpSpeed+_extra));
         }
 	}
     
-    public void Begin() {
+    public void Begin( float extra = 0 ) {
+        this._extra = extra;
         if (_jump == false)
             _jump = true;
     }
 
     void OnTriggerEnter2D(Collider2D other) 
     {
-        _jump = false;
+        if (other.name != "LandUp")
+        {
+            this._extra = 0;
+            _jump = false;
+        }
     }
 }

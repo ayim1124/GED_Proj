@@ -4,7 +4,7 @@ using System.Collections;
 public class BulletManage : MonoBehaviour {
     BulletControl _control = null;
     BulletEffectBase _effect = null;
-    
+
     public int Attack = 100;
     public float Speed = 3f;
     public float IntervalTime = 1f;
@@ -15,6 +15,7 @@ public class BulletManage : MonoBehaviour {
         _effect = GetComponentInChildren<BulletEffectBase>();
         if (_control == null || _effect == null)
             Debug.LogError("Bullet don't set");
+
 	}
 
     public void Effect() {

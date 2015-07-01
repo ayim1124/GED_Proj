@@ -1,13 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Item_AtkUp : MonoBehaviour {
-    void OnTriggerEnter2D(Collider2D Other)
+public class Item_AtkUp : ItemBase
+{
+    protected override void Effect(Collider2D Other)
     {
-        if (Other.tag == "Player")
-        {
-            Other.GetComponent<PlayerAttirbute>().Attack += 10;
-        }
-        Destroy(gameObject);
+        Other.GetComponent<PlayerAttirbute>().Attack.Origin += 10;
     }
 }

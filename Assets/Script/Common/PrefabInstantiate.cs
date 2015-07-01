@@ -22,7 +22,7 @@ public static class PrefabInstantiate {
         return obj;
     }
 
-    public static GameObject Create(string prefabName, string objName)
+    public static GameObject Create(string prefabName, string objName = "")
     {
         Object prefab = Resources.Load(prefabName);
         if (prefab == null)
@@ -38,7 +38,9 @@ public static class PrefabInstantiate {
             return null;
         }
 
-        obj.name = objName;
+        if( objName != "" )
+            obj.name = objName;
+
         return obj;
     }
 }

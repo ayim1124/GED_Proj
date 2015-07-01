@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: be79fb87ad3547d4095f135be998e732
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - PerfabPlayer: {fileID: 103318, guid: 503692b131ad6d34fa0f099678538e6e, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

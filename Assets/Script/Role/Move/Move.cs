@@ -1,49 +1,45 @@
-﻿using UnityEngine;
+﻿// 此class務必與角色控制放在同一個物件
+
+using UnityEngine;
 using System.Collections;
 
 public class Move : MonoBehaviour {
     PlayerAttirbute _attribute = null;
     public float Speed
     {
-        get { return Mathf.Lerp(FightManage.g_moveSpeedMin, FightManage.g_moveSpeedMax, _attribute.MoveSpeed / 100f); }
+        get { return BaseDefine.g_moveSpeedMax*this._attribute.MoveSpeed.Current / 100f + BaseDefine.g_moveSpeedMin*(1-this._attribute.MoveSpeed.Current / 100f); }
     }
     Jump _jump = null;
 
     void Start() {
         _jump = GetComponentInChildren<Jump>();
-        if (_jump == null)
-            Debug.LogError("Cant find jump");
+        ErrorLog.CheckComponentExist(this._jump, "Jump", this.name);
          
         _attribute = GetComponentInParent<PlayerAttirbute>();
-        if (_attribute == null)
-            Debug.LogError("Attribute Not Found");
+        ErrorLog.CheckComponentExist(this._attribute, "Attribute", this.name);
     }
 
     void Update () {
-        WalkControl();
-        JumpControl();
+        if (transform.position.x >= BaseDefine.g_width)
+            transform.position = new Vector3(BaseDefine.g_width, transform.position.y, 0);
+        else if (transform.position.x <= -BaseDefine.g_width)
+            transform.position = new Vector3(-BaseDefine.g_width, transform.position.y, 0);
 	}
-    void WalkControl()
-    {
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.Translate(Vector3.left * Time.deltaTime * Speed);
-        }
-        else if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * Speed);
-        }
 
-        if (transform.position.x >= FightManage.g_width)
-            transform.position = new Vector3(FightManage.g_width, transform.position.y, 0);
-        else if (transform.position.x <= -FightManage.g_width)
-            transform.position = new Vector3(-FightManage.g_width, transform.position.y, 0);
+    public void Left() {
+        transform.Translate(Vector3.left * Time.deltaTime * Speed);
     }
-    void JumpControl()
+
+    public void Right() {
+        transform.Translate(Vector3.right * Time.deltaTime * Speed);
+    }
+
+    public void Begin() {
+        transform.Translate(Vector3.right * Time.deltaTime * Speed);
+    }
+
+    public void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            _jump.Begin();
-        }
+        _jump.Begin();
     }
 }

@@ -3,22 +3,12 @@ using System.Collections;
 
 public class AI_Attribute : MonoBehaviour {
 
-    public int hp = 3000;
+    public int DebugHp = 3000;
+    HpManage _hp = null;
 
 	// Use this for initialization
 	void Start () {
-	
+        this._hp = GetComponent<HpManage>();
+        this._hp.Initial(DebugHp);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-    void ApplyDamage(int damage = 0)
-    {
-        hp -= damage;
-        if (hp <= 0)
-            Destroy(gameObject);
-    }
 }

@@ -8,16 +8,10 @@ public static class ItemManage
 
     public static GameObject RandomGet()
     {
-        GameObject obj = null;
         string name = randomName();
-        if (name != ""){
-            Object prefab = Resources.Load(_path + name);
-            if (prefab == null)
-                Debug.LogError("Can't find resources : " + name);
-            else
-                obj = (GameObject)prefab;
-        }
-        return obj;
+        if( name == "" )
+            return null;
+        return GetPrefabAtResource.Create(_path + name);
     }
 
     static string randomName() {

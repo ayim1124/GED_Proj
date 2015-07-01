@@ -9,4 +9,8 @@ public sealed class IconManage : MonoBehaviour {
     void Awake() {
         Number = new List<Sprite>( SetNumber );
     }
+
+    void Start() {
+        gameObject.hideFlags = HideFlags.HideInHierarchy;
+    }
 }

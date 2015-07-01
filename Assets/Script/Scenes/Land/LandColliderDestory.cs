@@ -15,9 +15,9 @@ public class LandColliderDestory : MonoBehaviour {
 	
 	}
 
-    void OnTriggerEnter2D(Collider2D Other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (Other.tag == "Bullet")
+        if (other.tag == "Bullet")
         {
             if( _item != null )
                 Instantiate(_item, transform.position, Quaternion.identity);

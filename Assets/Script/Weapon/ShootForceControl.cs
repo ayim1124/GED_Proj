@@ -29,7 +29,7 @@ public class ShootForceControl : MonoBehaviour {
         if (_enable) {
             _forceBar.transform.position = IconTrans.position + Vector3.up * 0.5f;
             _forceBar.transform.rotation = Quaternion.identity;
-            _forceBar.Percent = Mathf.RoundToInt(Mathf.PingPong(Time.time * 100, MaxForce));
+            _forceBar.Percent = Mathf.RoundToInt(Mathf.PingPong(Time.time * 150, MaxForce));
         }
 	}
 }
